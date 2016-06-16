@@ -1,0 +1,8 @@
+# ignored files
+Hit/Hit.pro.user
+*.*~
+*.user
+.directory
+
+# ignored directories
+build-*

@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class WebCamInput;
+
 namespace Ui {
 class MainWindow;
 }
@@ -15,8 +17,13 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void displayPreview();
+
 private:
     Ui::MainWindow *ui;
+
+    WebCamInput *camera = 0;
 };
 
 #endif // MAINWINDOW_H

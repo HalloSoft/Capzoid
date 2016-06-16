@@ -4,6 +4,8 @@
 
 WebCamInput::WebCamInput()
 {
+
+    qDebug() << "opencv-Version" << CV_MAJOR_VERSION << CV_MINOR_VERSION;
 }
 
 WebCamInput::~WebCamInput()
@@ -20,6 +22,7 @@ Mat WebCamInput::getImage()
 
 void WebCamInput::shoot()
 {
+
     if(capture.isOpened())  // check if we succeeded in opening
     {
         Mat tempMatrix;

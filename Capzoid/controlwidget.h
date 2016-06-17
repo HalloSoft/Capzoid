@@ -18,14 +18,24 @@ public:
 
     void setImageCaptureEnabled(bool enable);
 
+public slots:
+    /** set the connection status */
+    void setConnectionStatus(bool connected);
+
 private slots:
+    void startMonitoring();
     void toggleContiniousMode();
 
 signals:
     void captureImage();
 
 private:
+    bool isCameraConnected();
+
     Ui::ContolWidget *ui;
+
+    static const QString cConnected;
+    static const QString cDisconnected;
 
     bool   isContiniousModeActive = false;
     QTimer shootTimer;

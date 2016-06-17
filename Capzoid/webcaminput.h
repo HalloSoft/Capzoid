@@ -21,6 +21,10 @@ class WebCamInput : public QObject/*, CapAbstractInput */
     Q_OBJECT
 
 public:
+
+    /** Oriaentation of the camera */
+    enum Orientation { original = 0, clockwise, countClowise, fliped};
+
     /** Constructor */
     WebCamInput();
 
@@ -37,17 +41,19 @@ public:
     void shoot();
 
     /** opens the cam */
-    void openCamera(int index = 0);
+    void openCamera(int index = 0, Orientation currentOrientation = original);
 
     /** closes the cam */
     void closeCamera();
 
 signals:
+    void connectionStatusChanged(bool connected);
     void shootingFinished();
 
 private:
 
     VideoCapture capture;
+    Orientation orientation = original;
     Mat matrix;
     int camIndex;
 };

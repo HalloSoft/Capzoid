@@ -26,15 +26,29 @@ void WebCamInput::shoot()
 
     if(capture.isOpened())  // check if we succeeded in opening
     {
-        Mat tempMatrix;
-
-        // capture >> tempMatrix;
+        // grab image and convert from BGR to RGB
         capture >> matrix;
         cvtColor(matrix, matrix, CV_BGR2RGB);
 
         //resize(tempMatrix, tempMatrix, Size(), zoomFactor, zoomFactor);
 
-       // transpose(matrix, matrix);
+        if(orientation == fliped)
+        {
+            flip(matrix, matrix, 0);
+            flip(matrix, matrix, 1);
+        }
+
+        if(orientation == clockwise)
+        {
+            transpose(matrix, matrix);
+            flip(matrix, matrix, 1);
+        }
+
+        if(orientation == countClowise)
+        {
+            transpose(matrix, matrix);
+            flip(matrix, matrix, 0);
+        }
 //        flip(tempMatrix, tempMatrix, 1);
 //        flip(tempMatrix, tempMatrix, 0);
 
@@ -45,7 +59,8 @@ void WebCamInput::shoot()
     }
     else
     {
-        qDebug() << "Capture cannot be opened";
+        qDebug() << "Camera No" << camIndex << "is not opened";
+
         Mat tempMatrix(200, 200, CV_8UC3);
         matrix = tempMatrix.clone();
     }
@@ -53,9 +68,12 @@ void WebCamInput::shoot()
     emit shootingFinished();
 }
 
-void WebCamInput::openCamera(int index)
+void WebCamInput::openCamera(int index, Orientation currentOrientation)
 {
     camIndex = index;
+    orientation = currentOrientation;
+
+    bool openedSuccessfull = false;
 
     try
     {
@@ -63,6 +81,7 @@ void WebCamInput::openCamera(int index)
 
         if(capture.isOpened())
         {
+            openedSuccessfull = true;
             qDebug() << "CAM: Width of the frames:" << capture.get(CV_CAP_PROP_FRAME_WIDTH);
             qDebug() << "CAM: Height of the frames:" << capture.get(CV_CAP_PROP_FRAME_HEIGHT);
             qDebug() << "CAM: \topen\tindex" << camIndex;
@@ -72,6 +91,8 @@ void WebCamInput::openCamera(int index)
     {
         qDebug() << "\nMessage:" << QString::fromStdString(exception.msg) << endl;
     }
+
+    emit connectionStatusChanged(openedSuccessfull);
 }
 
 void WebCamInput::closeCamera()

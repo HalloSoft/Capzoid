@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>111</height>
+    <height>257</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,47 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="buttonShoot">
+      <widget class="QPushButton" name="buttonConnect">
        <property name="text">
-        <string>Shoot</string>
+        <string>Connect</string>
        </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelConnectionStatus">
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <item>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </item>
       </widget>
      </item>
      <item>
@@ -39,22 +76,54 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <widget class="QPushButton" name="buttonContiniousMode">
+      <widget class="QLabel" name="label">
        <property name="text">
-        <string>Cont</string>
+        <string>Refreshrate:</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEditTime">
-       <property name="text">
-        <string>1</string>
-       </property>
+      <widget class="QComboBox" name="comboBoxRefreshRate">
+       <item>
+        <property name="text">
+         <string>0.1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>0.2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>0.3</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>0.5</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1.0</string>
+        </property>
+       </item>
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBoxTrigger">
+     <property name="title">
+      <string>Trigger</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

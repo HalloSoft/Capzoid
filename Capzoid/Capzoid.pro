@@ -31,7 +31,7 @@ FORMS    += mainwindow.ui \
 VERSION_MAJOR = 3
 VERSION_MINOR = 0
 VERSION_REVISION = 0
-VERSION_BUILD = 0
+VERSION_BUILD = 2
 DEFINES += "VERSION_MAJOR=$$VERSION_MAJOR"\
            "VERSION_MINOR=$$VERSION_MINOR"\
            "VERSION_REVISION=$$VERSION_REVISION"\
@@ -40,7 +40,7 @@ VERSION = $${VERSION_MAJOR}.$${VERSION_MINOR}.$${VERSION_REVISION}.$${VERSION_BU
 
 # for linux
 unix {
-    INCLUDEPATH += /usr/include/opencv
+#    INCLUDEPATH += /usr/include/opencv
 #    LIBS += -L/usr/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_videoio
     LIBS += -L/usr/lib -lopencv_core -lopencv_highgui -lopencv_imgproc
 }

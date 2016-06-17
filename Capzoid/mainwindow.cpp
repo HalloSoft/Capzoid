@@ -18,9 +18,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     bool isConnected = false; Q_UNUSED(isConnected);
     isConnected = connect(ui->controlWidget, SIGNAL(captureImage()), this, SLOT(displayPreview())); Q_ASSERT(isConnected);
+    isConnected = connect(camera, SIGNAL(connectionStatusChanged(bool)), ui->controlWidget, SLOT(setConnectionStatus(bool))); Q_ASSERT(isConnected);
 
     //Menu
     isConnected = connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(openAboutBox())); Q_ASSERT(isConnected);
+
 
     //Test
     camera->openCamera();

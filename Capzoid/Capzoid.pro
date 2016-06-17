@@ -18,18 +18,21 @@ SOURCES += main.cpp\
     webcaminput.cpp \
     controlwidget.cpp \
     aboutbox.cpp \
-    triggerwidget.cpp
+    triggerwidget.cpp \
+    settingsdialog.cpp
 
 HEADERS  += mainwindow.h \
     webcaminput.h \
     controlwidget.h \
     aboutbox.h \
-    triggerwidget.h
+    triggerwidget.h \
+    settingsdialog.h
 
 FORMS    += mainwindow.ui \
     controlwidget.ui \
     aboutbox.ui \
-    triggerwidget.ui
+    triggerwidget.ui \
+    settingsdialog.ui
 
 VERSION_MAJOR = 3
 VERSION_MINOR = 0

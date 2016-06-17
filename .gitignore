@@ -4,6 +4,7 @@ Artwork/*.png
 
 *.*~
 *.user
+*.autosave
 .directory
 
 # ignored directories

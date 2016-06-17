@@ -24,8 +24,15 @@ private slots:
 
     // menu
     void openAboutBox();
+    void openSettingsDialog();
+
+protected:
+    void closeEvent(QCloseEvent *event);
 
 private:
+    void writeSettings();
+    void readSettings();
+
     Ui::MainWindow *ui;
 
     WebCamInput *camera = 0;

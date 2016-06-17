@@ -13,6 +13,7 @@ ControlWidget::ControlWidget(QWidget *parent) :
     bool isConnected = false; Q_UNUSED(isConnected);
     //isConnected = connect(ui->buttonConnect, SIGNAL(clicked(bool)), this, SIGNAL(captureImage()));            Q_ASSERT(isConnected);
     //isConnected = connect(ui->buttonContiniousMode, SIGNAL(clicked()), this, SLOT(toggleContiniousMode())); Q_ASSERT(isConnected);
+    isConnected = connect(ui->buttonConnect, SIGNAL(clicked()), this, SLOT(connectCamera()));             Q_ASSERT(isConnected);
     isConnected = connect(ui->buttonConnect, SIGNAL(clicked()), this, SLOT(startMonitoring()));             Q_ASSERT(isConnected);
     isConnected = connect(&shootTimer, SIGNAL(timeout()), this, SIGNAL(captureImage()));                    Q_ASSERT(isConnected);
 
@@ -34,9 +35,28 @@ void ControlWidget::setImageCaptureEnabled(bool enable)
 void ControlWidget::setConnectionStatus(bool connected)
 {
     if(connected)
+    {
         ui->labelConnectionStatus->setText(cConnected);
+        ui->comboBoxRefreshRate->setEnabled(false);
+    }
     else
+    {
         ui->labelConnectionStatus->setText(cDisconnected);
+        ui->comboBoxRefreshRate->setEnabled(true);
+    }
+}
+
+void ControlWidget::connectCamera()
+{
+    if(isCameraConnected())
+    {
+      emit connectionRequested(0, false);
+    }
+    else
+    {
+        int index = ui->comboBoxCameraIndex->currentText().toInt();
+        emit connectionRequested(index, true);
+    }
 }
 
 void ControlWidget::startMonitoring()
@@ -47,6 +67,8 @@ void ControlWidget::startMonitoring()
         refreshrate = ui->comboBoxRefreshRate->currentText().toFloat() * 1000.0;
         shootTimer.start(refreshrate);
     }
+    else
+        shootTimer.stop();
 }
 
 void ControlWidget::toggleContiniousMode()

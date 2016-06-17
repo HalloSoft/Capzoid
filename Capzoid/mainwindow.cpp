@@ -17,15 +17,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     bool isConnected = false; Q_UNUSED(isConnected);
+    isConnected = connect(ui->controlWidget, SIGNAL(connectionRequested(int,bool)), this, SLOT(connectCamera(int,bool))); Q_ASSERT(isConnected);
     isConnected = connect(ui->controlWidget, SIGNAL(captureImage()), this, SLOT(displayPreview())); Q_ASSERT(isConnected);
     isConnected = connect(camera, SIGNAL(connectionStatusChanged(bool)), ui->controlWidget, SLOT(setConnectionStatus(bool))); Q_ASSERT(isConnected);
 
     //Menu
     isConnected = connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(openAboutBox())); Q_ASSERT(isConnected);
 
-
     //Test
-    camera->openCamera();
+    //camera->openCamera();
 
 }
 
@@ -45,6 +45,14 @@ void MainWindow::displayPreview()
     ui->label->setPixmap(p);
 
     qDebug() << "Shot!";
+}
+
+void MainWindow::connectCamera(int index, bool connect)
+{
+    if(connect)
+        camera->openCamera(index);
+    else
+        camera->closeCamera();
 }
 
 void MainWindow::openAboutBox()

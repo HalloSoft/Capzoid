@@ -23,10 +23,12 @@ public slots:
     void setConnectionStatus(bool connected);
 
 private slots:
+    void connectCamera();
     void startMonitoring();
     void toggleContiniousMode();
 
 signals:
+    void connectionRequested(int index, bool connect = true);
     void captureImage();
 
 private:

@@ -5,8 +5,6 @@
 
 WebCamInput::WebCamInput()
 {
-
-    qDebug() << "opencv-Version" << CV_MAJOR_VERSION << CV_MINOR_VERSION;
 }
 
 WebCamInput::~WebCamInput()
@@ -99,5 +97,7 @@ void WebCamInput::closeCamera()
 {
     // this device is closed by the destructor
     capture.release();
+    emit connectionStatusChanged(false);
+
     qDebug() << "CAM: \tclosed";
 }

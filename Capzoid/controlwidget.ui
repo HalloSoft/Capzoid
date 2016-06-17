@@ -123,10 +123,23 @@
      <property name="title">
       <string>Trigger</string>
      </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="TriggerWidget" name="triggerwidget" native="true"/>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TriggerWidget</class>
+   <extends>QWidget</extends>
+   <header>triggerwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

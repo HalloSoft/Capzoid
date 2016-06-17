@@ -20,6 +20,7 @@ public:
 private slots:
     void displayPreview();
     void connectCamera(int index, bool connect);
+    void saveImage();
 
     // menu
     void openAboutBox();

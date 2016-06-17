@@ -30,6 +30,7 @@ private slots:
 signals:
     void connectionRequested(int index, bool connect = true);
     void captureImage();
+    void triggered();
 
 private:
     bool isCameraConnected();

@@ -16,6 +16,7 @@ ControlWidget::ControlWidget(QWidget *parent) :
     isConnected = connect(ui->buttonConnect, SIGNAL(clicked()), this, SLOT(connectCamera()));             Q_ASSERT(isConnected);
     isConnected = connect(ui->buttonConnect, SIGNAL(clicked()), this, SLOT(startMonitoring()));             Q_ASSERT(isConnected);
     isConnected = connect(&shootTimer, SIGNAL(timeout()), this, SIGNAL(captureImage()));                    Q_ASSERT(isConnected);
+    isConnected = connect(ui->triggerwidget, SIGNAL(triggered()), this, SIGNAL(triggered())); Q_ASSERT(isConnected);
 
     // Defaults
     int index = ui->comboBoxRefreshRate->findText("0.3", static_cast<Qt::MatchFlags>( Qt::MatchExactly));

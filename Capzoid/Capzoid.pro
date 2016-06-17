@@ -17,21 +17,24 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     webcaminput.cpp \
     controlwidget.cpp \
-    aboutbox.cpp
+    aboutbox.cpp \
+    triggerwidget.cpp
 
 HEADERS  += mainwindow.h \
     webcaminput.h \
     controlwidget.h \
-    aboutbox.h
+    aboutbox.h \
+    triggerwidget.h
 
 FORMS    += mainwindow.ui \
     controlwidget.ui \
-    aboutbox.ui
+    aboutbox.ui \
+    triggerwidget.ui
 
 VERSION_MAJOR = 3
 VERSION_MINOR = 0
 VERSION_REVISION = 0
-VERSION_BUILD = 2
+VERSION_BUILD = 4
 DEFINES += "VERSION_MAJOR=$$VERSION_MAJOR"\
            "VERSION_MINOR=$$VERSION_MINOR"\
            "VERSION_REVISION=$$VERSION_REVISION"\

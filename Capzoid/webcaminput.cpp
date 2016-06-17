@@ -47,13 +47,6 @@ void WebCamInput::shoot()
             transpose(matrix, matrix);
             flip(matrix, matrix, 0);
         }
-//        flip(tempMatrix, tempMatrix, 1);
-//        flip(tempMatrix, tempMatrix, 0);
-
-
-        // make a copy to pass away
-
-        //matrix = tempMatrix.clone();
     }
     else
     {

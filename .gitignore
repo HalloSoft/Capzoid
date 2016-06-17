@@ -1,5 +1,7 @@
 # ignored files
-Hit/Hit.pro.user
+Capzoid/Capzoid.pro.user
+Artwork/*.png
+
 *.*~
 *.user
 .directory

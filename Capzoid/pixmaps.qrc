@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/pixmaps">
+        <file>pixmaps/App.png</file>
+    </qresource>
+</RCC>

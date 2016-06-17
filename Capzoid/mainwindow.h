@@ -20,6 +20,9 @@ public:
 private slots:
     void displayPreview();
 
+    // menu
+    void openAboutBox();
+
 private:
     Ui::MainWindow *ui;
 

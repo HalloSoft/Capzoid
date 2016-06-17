@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "aboutbox.h"
 #include "webcaminput.h"
 
 #include "opencv2/opencv.hpp"
@@ -17,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     bool isConnected = false; Q_UNUSED(isConnected);
     isConnected = connect(ui->controlWidget, SIGNAL(captureImage()), this, SLOT(displayPreview())); Q_ASSERT(isConnected);
+
+    //Menu
+    isConnected = connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(openAboutBox())); Q_ASSERT(isConnected);
 
     //Test
     camera->openCamera();
@@ -39,6 +43,11 @@ void MainWindow::displayPreview()
     ui->label->setPixmap(p);
 
     qDebug() << "Shot!";
+}
 
+void MainWindow::openAboutBox()
+{
+    AboutBox aboutBox(this);
+    aboutBox.exec();
 
 }

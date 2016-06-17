@@ -16,14 +16,17 @@ CONFIG += c++11
 SOURCES += main.cpp\
         mainwindow.cpp \
     webcaminput.cpp \
-    controlwidget.cpp
+    controlwidget.cpp \
+    aboutbox.cpp
 
 HEADERS  += mainwindow.h \
     webcaminput.h \
-    controlwidget.h
+    controlwidget.h \
+    aboutbox.h
 
 FORMS    += mainwindow.ui \
-    controlwidget.ui
+    controlwidget.ui \
+    aboutbox.ui
 
 VERSION_MAJOR = 3
 VERSION_MINOR = 0
@@ -39,5 +42,8 @@ VERSION = $${VERSION_MAJOR}.$${VERSION_MINOR}.$${VERSION_REVISION}.$${VERSION_BU
 unix {
     INCLUDEPATH += /usr/include/opencv
 #    LIBS += -L/usr/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_videoio
-    LIBS += -L/usr/lib -lopencv_core -lopencv_highgui
+    LIBS += -L/usr/lib -lopencv_core -lopencv_highgui -lopencv_imgproc
 }
+
+RESOURCES += \
+    pixmaps.qrc

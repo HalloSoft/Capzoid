@@ -1,5 +1,6 @@
 #include "webcaminput.h"
 
+
 #include <QDebug>
 
 WebCamInput::WebCamInput()
@@ -27,18 +28,20 @@ void WebCamInput::shoot()
     {
         Mat tempMatrix;
 
-        capture >> tempMatrix;
+        // capture >> tempMatrix;
+        capture >> matrix;
+        cvtColor(matrix, matrix, CV_BGR2RGB);
 
         //resize(tempMatrix, tempMatrix, Size(), zoomFactor, zoomFactor);
 
-        //cvtColor(tempMatrix, tempMatrix,CV_BGR2RGB);
-//        transpose(tempMatrix, tempMatrix);
+       // transpose(matrix, matrix);
 //        flip(tempMatrix, tempMatrix, 1);
 //        flip(tempMatrix, tempMatrix, 0);
 
 
         // make a copy to pass away
-        matrix = tempMatrix.clone();
+
+        //matrix = tempMatrix.clone();
     }
     else
     {

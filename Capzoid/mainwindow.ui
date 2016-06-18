@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="pixmaps.qrc">
+    <normaloff>:/pixmaps/pixmaps/Icon.png</normaloff>:/pixmaps/pixmaps/Icon.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
@@ -92,6 +96,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="pixmaps.qrc"/>
+ </resources>
  <connections/>
 </ui>

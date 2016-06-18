@@ -51,12 +51,14 @@ void ControlWidget::connectCamera()
 {
     if(isCameraConnected())
     {
-      emit connectionRequested(0, false);
+        emit connectionRequested(0, false);
+        ui->triggerwidget->setEnabled(false);
     }
     else
     {
         int index = ui->comboBoxCameraIndex->currentText().toInt();
         emit connectionRequested(index, true);
+        ui->triggerwidget->setEnabled(true);
     }
 }
 
